@@ -1,6 +1,7 @@
 <p align="center">
-    <img src="https://github.com/guduudow/Slapscored/assets/127554226/3c7126fb-e0e1-44b2-ac77-a61082ae042d" alt="Slapscord_3rd_logo">
+  <img src="https://github.com/guduudow/Slapscored/assets/127554226/582318f1-7055-4dfb-95dd-0f0fc7034f52" alt="Tertiary Logo">
 </p>
+
 
 ## The Ultimate Fantasy Hockey Experience
 
