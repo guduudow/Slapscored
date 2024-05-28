@@ -1,0 +1,17 @@
+{
+  "name": "slapscored-back-end",
+  "version": "1.0.0",
+  "description": "the backend api handling part of slapscored, a fantasy hockey site",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js"
+  },
+  "author": "ederes gure",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.6.2",
+    "nodemon": "^3.1.0"
+  }
+}
