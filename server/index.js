@@ -7,7 +7,7 @@ const axios = require('axios');
 
 const { MongoClient, ObjectId } = require('mongodb');
 const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@slapscored.vly1t2q.mongodb.net/`;
-console.log(dbUrl);
+//console.log(dbUrl);
 const client = new MongoClient(dbUrl);
 
 async function connection() {
@@ -61,6 +61,91 @@ async function main() {
     }
   }
 }
+
+//getting the rosters from the table
+async function getLeafsRoster() {
+  await client.connect();
+  const db = client.db('tables');
+  let query = { teamCode: "TOR" };
+  let projection = { roster: 1, _id: 0 }
+  let teamRoster = db.collection("TOR_roster").findOne(query, { projection });
+  return teamRoster;
+};
+
+async function getHabsRoster() {
+  await client.connect();
+  const db = client.db('tables');
+  let query = { teamCode: "MTL" };
+  let projection = { roster: 1, _id: 0 }
+  let teamRoster = db.collection("MTL_roster").findOne(query, { projection });
+  return teamRoster;
+};
+
+async function getRedWingsRoster() {
+  await client.connect();
+  const db = client.db('tables');
+  let query = { teamCode: "DET" };
+  let projection = { roster: 1, _id: 0 }
+  let teamRoster = db.collection("DET_roster").findOne(query, { projection });
+  return teamRoster;
+};
+
+async function getBruinsRoster() {
+  await client.connect();
+  const db = client.db('tables');
+  let query = { teamCode: "BOS" };
+  let projection = { roster: 1, _id: 0 }
+  let teamRoster = db.collection("BOS_roster").findOne(query, { projection });
+  return teamRoster;
+};
+
+async function getBlackHawksRoster() {
+  await client.connect();
+  const db = client.db('tables');
+  let query = { teamCode: "CHI" };
+  let projection = { roster: 1, _id: 0 }
+  let teamRoster = db.collection("CHI_roster").findOne(query, { projection });
+  return teamRoster;
+};
+
+async function getRangersRoster() {
+  await client.connect();
+  const db = client.db('tables');
+  let query = { teamCode: "NYR" };
+  let projection = { roster: 1, _id: 0 }
+  let teamRoster = db.collection("NYR_roster").findOne(query, { projection });
+  return teamRoster;
+};
+
+app.get('/api/leafs', async (req, res) => {
+  let team = await getLeafsRoster();
+  res.send(team);
+});
+
+app.get('/api/habs', async (req, res) => {
+  let team = await getHabsRoster();
+  res.send(team);
+});
+
+app.get('/api/redwings', async (req, res) => {
+  let team = await getRedWingsRoster();
+  res.send(team);
+});
+
+app.get('/api/bruins', async (req, res) => {
+  let team = await getBruinsRoster();
+  res.send(team);
+});
+
+app.get('/api/blackhawks', async (req, res) => {
+  let team = await getBlackHawksRoster();
+  res.send(team);
+});
+
+app.get('/api/rangers', async (req, res) => {
+  let team = await getRangersRoster();
+  res.send(team);
+});
 
 main().catch(console.error);
 
