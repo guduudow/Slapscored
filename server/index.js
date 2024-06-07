@@ -4,16 +4,17 @@ const port = process.env.PORT || "3500";
 const dotenv = require('dotenv');
 dotenv.config();
 const axios = require('axios');
+const mongoose = require("mongoose");
+const connection = require('./config/db');
 
-const { MongoClient, ObjectId } = require('mongodb');
-const dbUrl = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PWD}@slapscored.vly1t2q.mongodb.net/`;
-//console.log(dbUrl);
-const client = new MongoClient(dbUrl);
+const rosterSchema = new mongoose.Schema({
+  _id: String,
+  teamCode: String,
+  season: String,
+  roster: Array,
+}, { collection: 'default' });
 
-async function connection() {
-  const db = client.db("Slapscored");
-  return db;
-}
+const Roster = mongoose.model('Roster', rosterSchema);
 
 //code for fetching rosters below
 async function fetchRoster(teamCode, season) {
@@ -28,11 +29,14 @@ async function fetchRoster(teamCode, season) {
 }
 
 async function addRoster(roster, teamCode) {
-  const client = new MongoClient(dbUrl);
   try {
-    await client.connect();
-    const db = client.db('tables');
-    const collection = db.collection(`${teamCode}_roster`);
+    await connection();
+    const db = mongoose.connection.db;
+    if (!db) {
+      throw new Error('no database connection');
+    }
+    const collectionName = `${teamCode}_roster`;
+    const collection = db.collection(collectionName);
 
     const result = await collection.updateOne(
       { _id: `${teamCode}_roster` },
@@ -50,6 +54,7 @@ async function addRoster(roster, teamCode) {
 }
 
 async function main() {
+  //await connection();
   const teams = ["TOR", "MTL", "DET", "BOS", "CHI", "NYR"];
   const season = '20232024';
   for (teamCode of teams) {
@@ -62,92 +67,57 @@ async function main() {
   }
 }
 
-//getting the rosters from the table
-async function getLeafsRoster() {
-  await client.connect();
-  const db = client.db('tables');
-  let query = { teamCode: "TOR" };
-  let projection = { roster: 1, _id: 0 }
-  let teamRoster = db.collection("TOR_roster").findOne(query, { projection });
-  return teamRoster;
-};
-
-async function getHabsRoster() {
-  await client.connect();
-  const db = client.db('tables');
-  let query = { teamCode: "MTL" };
-  let projection = { roster: 1, _id: 0 }
-  let teamRoster = db.collection("MTL_roster").findOne(query, { projection });
-  return teamRoster;
-};
-
-async function getRedWingsRoster() {
-  await client.connect();
-  const db = client.db('tables');
-  let query = { teamCode: "DET" };
-  let projection = { roster: 1, _id: 0 }
-  let teamRoster = db.collection("DET_roster").findOne(query, { projection });
-  return teamRoster;
-};
-
-async function getBruinsRoster() {
-  await client.connect();
-  const db = client.db('tables');
-  let query = { teamCode: "BOS" };
-  let projection = { roster: 1, _id: 0 }
-  let teamRoster = db.collection("BOS_roster").findOne(query, { projection });
-  return teamRoster;
-};
-
-async function getBlackHawksRoster() {
-  await client.connect();
-  const db = client.db('tables');
-  let query = { teamCode: "CHI" };
-  let projection = { roster: 1, _id: 0 }
-  let teamRoster = db.collection("CHI_roster").findOne(query, { projection });
-  return teamRoster;
-};
-
-async function getRangersRoster() {
-  await client.connect();
-  const db = client.db('tables');
-  let query = { teamCode: "NYR" };
-  let projection = { roster: 1, _id: 0 }
-  let teamRoster = db.collection("NYR_roster").findOne(query, { projection });
-  return teamRoster;
+async function getTeamRoster(teamCode) {
+  try {
+    await connection();
+    const db = mongoose.connection.db;
+    let query = { teamCode: teamCode };
+    let projection = { roster: 1, _id: 0 }
+    let collection = db.collection(`${teamCode}_roster`)
+    const teamRoster = await collection.findOne(query, projection);
+    return teamRoster;
+  } catch (error) {
+    console.error('error fetching team roster', error)
+  }
 };
 
 app.get('/api/leafs', async (req, res) => {
-  let team = await getLeafsRoster();
+  let team = await getTeamRoster("TOR");
   res.send(team);
 });
 
 app.get('/api/habs', async (req, res) => {
-  let team = await getHabsRoster();
+  let team = await getTeamRoster("MTL");
   res.send(team);
 });
 
 app.get('/api/redwings', async (req, res) => {
-  let team = await getRedWingsRoster();
+  let team = await getTeamRoster("DET");
   res.send(team);
 });
 
 app.get('/api/bruins', async (req, res) => {
-  let team = await getBruinsRoster();
+  let team = await getTeamRoster("BOS");
   res.send(team);
 });
 
 app.get('/api/blackhawks', async (req, res) => {
-  let team = await getBlackHawksRoster();
+  let team = await getTeamRoster("CHI");
   res.send(team);
 });
 
 app.get('/api/rangers', async (req, res) => {
-  let team = await getRangersRoster();
+  let team = await getTeamRoster("NYR");
   res.send(team);
 });
 
 main().catch(console.error);
+
+app.use(express.json());
+
+//Authentication routes
+const routes = require('./routes/auth');
+app.use('/auth', routes);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

@@ -1,6 +1,7 @@
 # Development related files
 .env
 node_modules/
+secret/
 
 # General
 .DS_Store
