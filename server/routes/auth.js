@@ -45,7 +45,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-router.post('/login', auth, async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -61,15 +61,15 @@ router.post('/login', auth, async (req, res) => {
       return res.status(400).json({ msg: "Invalid credentials." });
     }
 
-    const payload = {
-      user: {
-        id: user.id
-      }
-    };
 
-    jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRY }), (err, token) => {
-      if (err) throw err; res.json({ token })
-    };
+    console.log(user);
+
+    const key = jwt.sign({ user }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRY });
+    console.log(key);
+
+    res.json({ key })
+
+
 
   } catch (error) {
     console.error(error.message);
