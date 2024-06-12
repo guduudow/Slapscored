@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Jockey+One&display=swap");
+
+.navbar-color {
+  background-color: #0a1d56;
+}
+
+.logo-font {
+  font-family: "Jockey One", sans-serif;
+  font-weight: 400;
+  /* font-style: normal; */
+  color: white;
+  text-transform: uppercase;
+  margin: 5px;
+}
+
+.user-login {
+  background-color: #52d3d8;
+  border-color: #52d3d8;
+  border-radius: 15px;
+}
+
+.user-login-font {
+  font-family: "Jockey One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ml-auto {
+  margin-left: auto;
+}
