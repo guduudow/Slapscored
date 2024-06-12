@@ -1,0 +1,21 @@
+.logo-font {
+  font-family: "Jockey One", sans-serif;
+  font-weight: 400;
+  /* font-style: normal; */
+  color: white;
+  text-transform: uppercase;
+  margin: 5px;
+}
+
+.register-form {
+  border: 3px solid #52d3d8;
+}
+
+.form-container {
+  padding: 25px;
+  border-radius: 50px;
+}
+
+.label-color {
+  color: #fff;
+}
