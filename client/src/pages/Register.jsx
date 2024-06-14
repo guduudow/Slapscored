@@ -3,9 +3,11 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Container, Col, Button, Form, Row } from "react-bootstrap";
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 function Register() {
   const [responseMessage, setResponseMessage] = useState("");
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -20,6 +22,7 @@ function Register() {
       );
       if (response.status === 201) {
         setResponseMessage("Account created sucessfully!");
+        navigate("/login");
       }
       console.log(response.data);
     } catch (error) {

@@ -63,11 +63,12 @@ router.post('/login', async (req, res) => {
 
 
     console.log(user);
-
+    res.status(201).json({ msg: "login successful!" });
     const key = jwt.sign({ user }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRY });
     console.log(key);
 
-    res.json({ key })
+    //res.json({ key })
+
 
 
 

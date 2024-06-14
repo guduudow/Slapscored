@@ -17,6 +17,8 @@
   background-color: #52d3d8;
   border-color: #52d3d8;
   border-radius: 15px;
+  width: 75px;
+  height: 38px;
 }
 
 .user-login-font {
@@ -38,4 +40,15 @@
 
 .ml-auto {
   margin-left: auto;
+}
+
+.login-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.navbar-padding {
+  padding-top: 20px;
 }

@@ -1,0 +1,14 @@
+.btn-font {
+  background-color: #52d3d8;
+  border-color: #52d3d8;
+  border-radius: 15px;
+  width: 75px;
+  height: 38px;
+}
+
+.signout-btn {
+  font-family: "Jockey One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
