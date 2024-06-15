@@ -25,7 +25,11 @@
   width: 350px;
   height: 350px;
   border-radius: 15px;
-  background-color: white;
+  background-color: #52d3d8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   /* padding-right: 47px; */
 }
 
@@ -35,4 +39,28 @@
 
 .box-B {
   margin-right: 47px;
+}
+
+.sphere {
+  background-color: #0a1d56;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.saying {
+  font-family: "Jockey One", sans-serif;
+  text-transform: uppercase;
+  font-size: 35px;
+  color: #0a1d56;
+  background-color: #52d3d8;
+  padding-top: 5px;
+}
+
+.compete {
+  margin: auto;
+  display: block;
+  color: #52d3d8;
 }

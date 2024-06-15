@@ -24,9 +24,42 @@ function Home() {
       </Container>
       <Container className="py-5">
         <Row className="justify-content-center">
-          <div className="infoBox box-A">Item #1</div>
-          <div className="infoBox box-B">Item #2</div>
-          <div className="infoBox box-C">Item #3</div>
+          <div className="infoBox box-A">
+            <div className="sphere">
+              <img
+                alt="standings in 1 2 and 3"
+                src="/src/assets/compete.svg"
+                width="100"
+                height="100"
+                className="compete"
+              />
+            </div>
+            <div className="saying">Compete.</div>
+          </div>
+          <div className="infoBox box-B">
+            <div className="sphere">
+              <img
+                alt="strategy board"
+                src="/src/assets/strategy.svg"
+                width="90"
+                height="90"
+                className="compete"
+              />
+            </div>
+            <div className="saying">Strategize.</div>
+          </div>
+          <div className="infoBox box-C">
+            <div className="sphere">
+              <img
+                alt="man celebrating"
+                src="/src/assets/celebrate.svg"
+                width="100"
+                height="100"
+                className="compete"
+              />
+            </div>
+            <div className="saying">Celebrate.</div>
+          </div>
         </Row>
       </Container>
     </>
