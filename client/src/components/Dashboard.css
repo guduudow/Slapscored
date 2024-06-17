@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+.scoreboard {
+  background-color: #ffffff;
+  width: 100vw;
+  height: 65px;
+  display: flex;
+  flex-direction: row;
+}
+
+.boxscore {
+  border-right: 5px solid #0a1d56;
+  background-color: #ffffff;
+  width: 184px;
+}
+
+.font-color {
+  font-family: "Jockey One", sans-serif;
+  color: #ffffff;
+  font-size: 40px;
+  margin-left: 35px;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-col {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.user {
+  width: 100%;
+  max-width: 285px;
+  height: auto;
+  border-radius: 10px;
+  border: 3px solid #52d3d8;
+  margin: 0 auto;
+  margin-left: 72px;
+}
+
+.profile {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: #0a1d56;
+  margin: 20px auto;
+}
+
+.acheive-title {
+  font-family: "Jockey One", sans-serif;
+  font-size: 25px;
+  color: #ffffff;
+  padding-left: 14px;
+  text-align: left;
+}
+
+.badge-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.badge {
+  border-radius: 50%;
+  background-color: gray;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.one {
+  background-color: #ff0000;
+}
+
+.two {
+  background-color: #4eb5fe;
+}
+
+.three {
+  background-color: #00ff29;
+}
+
+.four {
+  background-color: #c900fb;
+}
+
+.hundo {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffd600;
+  text-decoration: underline;
+  background-color: #ff0000;
+  margin: 0;
+  padding: 0;
+  transform: rotate(-17deg);
+}
+
+.mask {
+  background-color: #4eb5fe;
+  color: #ffffff;
+}
+
+.man {
+  border-radius: 50%;
+}
+
+.profile-name {
+  text-align: center;
+  padding-top: 70px;
+  font-family: "Roboto", sans-serif;
+  font-size: 35px;
+  margin-bottom: 0%;
+}
+
+.nickname {
+  text-align: center;
+  font-style: italic;
+}
+
+.profile {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding-top: 62px;
+}
+
+.trophy {
+  background-color: #00ff29;
+}
+
+.handshake {
+  background-color: #c900fb;
+}
+
+.subtitles {
+  font-family: "Jockey One", sans-serif;
+  font-size: 30px;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.team-section {
+  margin-top: 20px;
+}
+
+.team-view {
+  border: 3px solid #52d3d8;
+  border-style: dashed;
+  border-radius: 10px;
+}
+
+.text-below {
+  text-align: center;
+}
+
+.text-generic {
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  color: #ffffff;
+}
+
+.plus-box {
+  display: flex;
+  align-items: center;
+}
+
+.plus-sign {
+  background-color: #52d3d8;
+  border-radius: 50%;
+  margin: auto;
+  display: block;
+  padding-top: 5px;
+}
+
+.standings {
+  border: 3px solid #52d3d8;
+  border-radius: 10px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.standings th,
+.standings td {
+  background-color: #52d3d8;
+  color: #0a1d56;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #52d3d8;
+}
+
+.standings th {
+  font-weight: bold;
+}
+
+.standings tbody tr:nth-child(even) {
+  background-color: #ffffff; /* Alternate row color */
+}
+
+.standings tbody tr:hover {
+  background-color: #f2f2f2; /* Hover color */
+}
+
+.info-box {
+  width: 350px;
+  height: 350px;
+  border-radius: 15px;
+  background-color: #0a1d56;
+  border: 2px solid #52d3d8;
+  border-style: dotted;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding-right: 47px; */
+}
+
+.spheres {
+  background-color: #52d3d8;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.box {
+  margin-right: 92px;
+}
+
+.box {
+  margin-right: 125px;
+}
+
+.settings {
+  background-color: #52d3d8;
+  margin: auto;
+  display: block;
+}
+
+.sayings {
+  font-family: "Jockey One", sans-serif;
+  text-transform: uppercase;
+  font-size: 35px;
+  color: #52d3d8;
+  background-color: #0a1d56;
+  padding-top: 5px;
+}
+
+.tolink {
+  text-decoration: underline;
+  font-family: "Jockey One", sans-serif;
+  color: #52d3d8;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .user {
+    width: 100%;
+    max-width: none;
+    margin: 10px 0;
+  }
+
+  .badge-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .badge {
+    margin: 5px 0;
+  }
+
+  .team-section {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

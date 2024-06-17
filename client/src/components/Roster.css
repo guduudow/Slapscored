@@ -12,9 +12,12 @@
   background-color: #52d3d8;
 }
 
-/* .brand {
-  background-color: #0a1d56;
-} */
+.to-link {
+  text-decoration: underline;
+  font-family: "Jockey One", sans-serif;
+  color: #52d3d8;
+  font-size: 16px;
+}
 
 .proper-boxing {
   margin-top: 10px;

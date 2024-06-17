@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../components/Roster.css";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Roster() {
@@ -79,6 +80,9 @@ function Roster() {
 
   return (
     <Container>
+      <Link classname="roster-link" to="/dashboard">
+        <p className="to-link pt-5">Back to Dashboard.</p>
+      </Link>
       <Row className="pt-5">
         <Col md="4">
           {teams.map((team) => (
